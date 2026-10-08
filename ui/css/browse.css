@@ -1,0 +1,33 @@
+/* Chart browser page (uses the tokens from app.css) */
+body.browse { overflow: auto; }
+.browse .top { gap: 10px; }
+.browse .pos { font-variant-numeric: tabular-nums; color: var(--ink-2); min-width: 72px; text-align: center; }
+.browse #jump { flex: 0 1 220px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); }
+.browse .btcctx { margin-left: auto; }
+
+.coinhead { display: flex; align-items: baseline; flex-wrap: wrap; gap: 14px; padding: 10px 16px 4px; }
+.coinhead .rank { color: var(--muted); font-size: 18px; }
+.coinhead .sym { font-size: 28px; font-weight: 750; letter-spacing: -.02em; }
+.coinhead .name { font-size: 16px; color: var(--ink-2); }
+.coinhead .mc, .coinhead .total { font-size: 15px; color: var(--ink-2); }
+.coinhead .mc b, .coinhead .total b { color: var(--ink); }
+.coinhead .scen { font-size: 13px; padding: 2px 8px; align-self: center; }
+
+/* USD | BTC: one compact line each, the chart gets the rest of the screen */
+.pairs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 4px 16px 8px; }
+.pair { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; background: var(--surface);
+        border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.pq { font-size: 12px; letter-spacing: .06em; color: var(--ink-2); }
+.pscore { font-size: 12px; font-weight: 700; padding: 1px 7px; border-radius: 5px; border: 1px solid var(--line); }
+.it i { font-style: normal; color: var(--muted); font-size: 11px; margin-right: 5px; }
+.pill { padding: 1px 6px; border-radius: 4px; }
+.pair .u { color: var(--up); } .pair .d { color: var(--down); }
+
+.chartwrap { padding: 0 16px 8px; display: flex; justify-content: center; }
+#chart { max-width: 100%; max-height: calc(100vh - 200px); width: auto; height: auto; display: block;
+         border-radius: 8px; background: #fcfcfb; min-height: 300px; }
+
+@media (max-width: 900px) {
+  .pairs { grid-template-columns: 1fr; }
+  .browse .top { flex-wrap: wrap; }
+}

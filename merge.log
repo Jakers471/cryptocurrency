@@ -1,0 +1,8 @@
+merging 211 coins with 2 workers
+100/210
+200/210
+211 coins written to /Users/jakepaoletti/Desktop/alt/data/coins
+  ranked by market cap: 207
+  with >= 1 year of history: 192
+  still trading (data in last 7 days): 200
+python3 -m pipeline.merge  96.15s user 5.29s system 182% cpu 55.579 total

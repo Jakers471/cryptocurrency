@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alt Browser</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/browse.css">
+</head>
+<body class="browse">
+  <header class="top">
+    <div class="brand">
+      <h1>Alt Browser</h1>
+      <span class="meta" id="meta"></span>
+    </div>
+    <button id="prev" class="ghost" title="Previous (←)">← Prev</button>
+    <span class="pos" id="pos"></span>
+    <button id="next" class="ghost" title="Next (→)">Next →</button>
+    <input id="jump" type="search" placeholder="Jump to coin  ( / )" autocomplete="off" list="coinlist">
+    <datalist id="coinlist"></datalist>
+    <label class="chk"><input type="checkbox" id="hideStable" checked> Hide stables / pegged</label>
+    <span class="btcctx" id="btcctx"></span>
+    <a class="ghost btn" href="index.html">Table view</a>
+    <button id="theme" class="ghost" title="Toggle light / dark">◐</button>
+  </header>
+
+  <section class="coinhead" id="coinhead"></section>
+  <section class="pairs" id="pairs"></section>
+  <main class="chartwrap">
+    <img id="chart" alt="USD and BTC zone charts">
+  </main>
+
+  <footer class="keys">← → previous / next (highest market cap first) · / jump to a coin · Esc leave the search box</footer>
+
+  <script src="data/scan.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/columns.js"></script>
+  <script src="js/browse.js"></script>
+</body>
+</html>

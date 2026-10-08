@@ -1,0 +1,11 @@
+building 205 coins with 2 workers
+25/205  (31s)
+50/205  (54s)
+75/205  (79s)
+100/205  (105s)
+125/205  (129s)
+150/205  (162s)
+175/205  (191s)
+200/205  (218s)
+204 coins → ui/data/scan.js in 227s
+python3 -m scanner.build  398.37s user 11.07s system 178% cpu 3:49.21 total

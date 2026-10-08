@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alt Scanner</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Alt Scanner</h1>
+      <span class="meta" id="meta"></span>
+    </div>
+    <input id="search" type="search" placeholder="Search coin or name  ( / )" autocomplete="off">
+    <span class="btcctx" id="btcctx" title="It all depends on bitcoin: BTC/USD right now"></span>
+    <span class="count" id="count"></span>
+    <a class="ghost btn" href="browse.html" title="One coin per screen, USD and BTC side by side">Chart browser</a>
+    <button id="theme" class="ghost" title="Toggle light / dark">◐</button>
+  </header>
+
+  <section class="filters" id="filters">
+    <div class="group">
+      <span class="label">Setup</span>
+      <div class="seg scen-seg" data-f="scenario">
+        <button data-v="any" class="on">All</button><button data-v="S3S4" title="S3 or S4: the accumulation candidates">Accumulate (S3+S4)</button><button data-v="S3" title="Both pairs 80–95% corrected and at demand">S3 · both set up</button><button data-v="S4" title="Both pairs below / absorbing demand">S4 · absorbing</button><button data-v="S1" title="Only one pair corrected and at demand">S1 · one pair</button><button data-v="S2" title="Both pairs pumping, nowhere near demand">S2 · pumping</button><button data-v="USD only" title="No BTC market: half the picture">No BTC pair</button>
+      </div>
+      <label>Score ≥ <input type="number" data-f="minScore" min="0" max="100" step="5" placeholder="0"></label>
+    </div>
+    <div class="group">
+      <span class="label">Universe</span>
+      <label>Rank ≤ <input type="number" data-f="rankMax" min="1" step="50" placeholder="all"></label>
+      <label>History ≥ <input type="number" data-f="minYears" min="0" step="0.5" placeholder="0"> y</label>
+      <label class="chk"><input type="checkbox" data-f="hideStable" checked> Hide stables / pegged</label>
+    </div>
+    <details class="more" id="more">
+      <summary>More filters</summary>
+      <div class="more-body">
+    <div class="group">
+      <span class="label">Pair</span>
+      <div class="seg" data-f="pair">
+        <button data-v="either" class="on">Either</button><button data-v="usd">USD</button><button data-v="btc">BTC</button><button data-v="both">Both</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="label">Zone</span>
+      <div class="seg" data-f="zoneTf">
+        <button data-v="any" class="on">W or D</button><button data-v="w">Weekly</button><button data-v="d">Daily</button>
+      </div>
+      <label>Drop to zone ≤ <input type="number" data-f="maxDrop" min="0" max="100" step="5" placeholder="any"> %</label>
+      <label class="chk"><input type="checkbox" data-f="inZone"> In zone now</label>
+      <label class="chk"><input type="checkbox" data-f="fresh"> Fresh only</label>
+      <label class="chk"><input type="checkbox" data-f="conf"> W+D confluence</label>
+    </div>
+    <div class="group">
+      <span class="label">Trend</span>
+      <label>W <select data-f="stW"><option value="any">any</option><option value="1">▲ up</option><option value="-1">▼ down</option></select></label>
+      <label>D <select data-f="stD"><option value="any">any</option><option value="1">▲ up</option><option value="-1">▼ down</option></select></label>
+    </div>
+    <div class="group">
+      <span class="label">ATH</span>
+      <label>Below ATH ≥ <input type="number" data-f="minDd" min="0" max="100" step="10" placeholder="0"> %</label>
+      <label>ATH age ≥ <input type="number" data-f="minAthDays" min="0" step="30" placeholder="0"> d</label>
+      <label class="chk"><input type="checkbox" data-f="newHighs"> New highs (≤ 30 d)</label>
+    </div>
+      </div>
+    </details>
+    <button id="reset" class="ghost">Reset</button>
+  </section>
+
+  <main class="layout">
+    <div class="table-wrap" id="tableWrap">
+      <table id="table">
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <p class="empty" id="empty" hidden>No coins match these filters.</p>
+    </div>
+    <aside class="viewer" id="viewer" hidden>
+      <div class="viewer-head">
+        <div id="vTitle"></div>
+        <div class="viewer-actions">
+          <a id="vOpen" target="_blank" class="ghost btn" title="Open full-size chart">Full size ↗</a>
+          <button id="vClose" class="ghost" title="Close (Esc)">✕</button>
+        </div>
+      </div>
+      <div class="viewer-body">
+        <div id="vVerdict"></div>
+        <img id="vImg" alt="Zone chart">
+        <div id="vStats" class="vstats"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="keys">↑ ↓ move · Enter open chart · Esc close · / search · click a header to sort</footer>
+
+  <script src="data/scan.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/columns.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/table.js"></script>
+  <script src="js/viewer.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
